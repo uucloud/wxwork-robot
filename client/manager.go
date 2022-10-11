@@ -8,8 +8,9 @@ import (
 	"net/http"
 	"sync"
 	"time"
-	"wework-robot/utils"
-	"wework-robot/wxprotoc/receiver"
+
+	"github.com/uucloud/wework-robot/utils"
+	"github.com/uucloud/wework-robot/wxprotoc/receiver"
 
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"

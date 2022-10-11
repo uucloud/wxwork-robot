@@ -10,9 +10,10 @@ package main
 import (
 	"flag"
 	"time"
-	"wework-robot/client"
-	"wework-robot/utils"
-	"wework-robot/wxprotoc/receiver"
+
+	"github.com/uucloud/wework-robot/client"
+	"github.com/uucloud/wework-robot/utils"
+	"github.com/uucloud/wework-robot/wxprotoc/receiver"
 
 	"go.uber.org/zap"
 )

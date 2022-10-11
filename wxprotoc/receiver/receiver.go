@@ -7,7 +7,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
-	"wework-robot/utils"
+
+	"github.com/uucloud/wework-robot/utils"
 
 	"go.uber.org/zap"
 )

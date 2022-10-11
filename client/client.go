@@ -3,8 +3,9 @@ package client
 import (
 	"context"
 	"time"
-	"wework-robot/wxprotoc/receiver"
-	"wework-robot/wxprotoc/sender"
+
+	"github.com/uucloud/wework-robot/wxprotoc/receiver"
+	"github.com/uucloud/wework-robot/wxprotoc/sender"
 )
 
 type Robot struct {
