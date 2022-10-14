@@ -107,6 +107,9 @@ func (r *receiver) passiveReply(event *CallEvent) ([]byte, error) {
 }
 
 func (r *receiver) doPassiveReply(content string, replyType PassiveReplyType) ([]byte, error) {
+	if len(content) == 0 {
+		return nil, fmt.Errorf("PassiveReply content is empty")
+	}
 	var reply PassiveReplyResp
 
 	switch replyType {
