@@ -62,6 +62,13 @@ func (r *receiver) DecryptMsg(msgSign, timestamp, nonce string, data []byte) ([]
 }
 
 func (r *receiver) Reply(event *CallEvent) (b []byte, err error) {
+	utils.Logger.Info("ReplyEvent",
+		zap.String("user", event.UserID()),
+		zap.String("group", event.ChatID()),
+		zap.String("content", event.Texts()),
+		zap.Strings("images", event.ImageURLs()),
+		zap.Any("event", event.GetEventType()),
+	)
 	//单聊只能直接回
 	if event.GetChatType() == MSingle {
 		b, err = r.passiveReply(event)
@@ -139,14 +146,6 @@ func (r *receiver) encryptMsg(content interface{}) ([]byte, error) {
 	timestamp := strconv.Itoa(int(time.Now().Unix()))
 	nonce := RandString(10)
 	return r.msgCrypt.EncryptMsg(string(b), timestamp, nonce)
-}
-
-func (r *receiver) Event() error {
-	return nil
-}
-
-func (r *receiver) CardEvent() error {
-	return nil
 }
 
 func (r *receiver) Register(reply BaseReply) {

@@ -115,7 +115,7 @@ func (m *Manager) msg(w http.ResponseWriter, r *http.Request) {
 
 	for i, robot := range m.robots {
 		d, dErr := robot.Rec.DecryptMsg(msgSign, timestamp, nonce, data)
-		utils.Logger.Info("decryptMsg", zap.String("receive msg", string(d)))
+		utils.Logger.Debug("decryptMsg", zap.String("receive msg", string(d)))
 		if dErr == nil {
 			var event receiver.CallEvent
 			err = xml.Unmarshal(d, &event)
