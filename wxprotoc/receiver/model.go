@@ -59,7 +59,7 @@ type Text struct {
 }
 
 type Image struct {
-	ImageURL CDATA
+	ImageUrl CDATA
 }
 
 func (cm *CallEvent) MsgID() string {
@@ -87,12 +87,12 @@ func (cm *CallEvent) Texts() string {
 
 func (cm *CallEvent) ImageURLs() []string {
 	var ret []string
-	if cm.Image.ImageURL.Value != "" {
-		ret = append(ret, cm.Image.ImageURL.Value)
+	if cm.Image.ImageUrl.Value != "" {
+		ret = append(ret, cm.Image.ImageUrl.Value)
 	}
 	for _, mix := range cm.MixedMessage.MsgItem {
 		if mix.MsgType.Value == string(MImage) {
-			ret = append(ret, mix.Image.ImageURL.Value)
+			ret = append(ret, mix.Image.ImageUrl.Value)
 		}
 	}
 	return ret
