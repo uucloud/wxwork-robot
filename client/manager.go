@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/uucloud/wework-robot/utils"
-	"github.com/uucloud/wework-robot/wxprotoc/receiver"
+	"github.com/uucloud/wxwork-robot/utils"
+	"github.com/uucloud/wxwork-robot/wxprotoc/receiver"
 
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"

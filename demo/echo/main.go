@@ -11,9 +11,9 @@ import (
 	"flag"
 	"time"
 
-	"github.com/uucloud/wework-robot/client"
-	"github.com/uucloud/wework-robot/utils"
-	"github.com/uucloud/wework-robot/wxprotoc/receiver"
+	"github.com/uucloud/wxwork-robot/client"
+	"github.com/uucloud/wxwork-robot/utils"
+	"github.com/uucloud/wxwork-robot/wxprotoc/receiver"
 
 	"go.uber.org/zap"
 )

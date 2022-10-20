@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/uucloud/wework-robot/wxprotoc/receiver"
-	"github.com/uucloud/wework-robot/wxprotoc/sender"
+	"github.com/uucloud/wxwork-robot/wxprotoc/receiver"
+	"github.com/uucloud/wxwork-robot/wxprotoc/sender"
 )
 
 type Robot struct {

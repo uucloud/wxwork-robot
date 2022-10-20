@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/uucloud/wework-robot/utils"
+	"github.com/uucloud/wxwork-robot/utils"
 
 	"go.uber.org/zap"
 )

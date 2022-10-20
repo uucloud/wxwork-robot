@@ -2,9 +2,10 @@ package sender
 
 import (
 	"context"
-	uuid "github.com/hashicorp/go-uuid"
 	"strconv"
 	"testing"
+
+	uuid "github.com/hashicorp/go-uuid"
 )
 
 func newTestSender() Sender {

@@ -1,4 +1,4 @@
-module github.com/uucloud/wework-robot
+module github.com/uucloud/wxwork-robot
 
 go 1.19
 
