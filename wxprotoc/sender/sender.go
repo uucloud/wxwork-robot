@@ -21,7 +21,7 @@ type Sender interface {
 	NewsNoticeCard() error
 	ButtonCard() error
 	VoteCard() error
-	MultipleCard() error
+	MultipleCard(chatID string, t *TemplateCard) error
 }
 
 type sender struct {
@@ -140,9 +140,16 @@ func (s *sender) VoteCard() error {
 	return nil
 }
 
-func (s *sender) MultipleCard() error {
-	panic("need to implement")
-	return nil
+func (s *sender) MultipleCard(chatID string, card *TemplateCard) error {
+	card.CardType = "multiple_interaction"
+	req := SendReq{
+		CommonSend: CommonSend{
+			ChatID:  chatID,
+			MsgType: "template_card",
+		},
+		TemplateCard: card,
+	}
+	return s.send(req)
 }
 
 func (s *sender) send(content interface{}) error {

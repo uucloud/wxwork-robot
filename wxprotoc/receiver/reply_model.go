@@ -53,10 +53,7 @@ func (br *baseReply) MsgType() []MsgType {
 }
 
 func (br *baseReply) SupportPassiveReply() bool {
-	if br.passiveReply != nil {
-		return true
-	}
-	return false
+	return br.passiveReply != nil
 }
 
 func (br *baseReply) PassiveReply(event *CallEvent) (string, PassiveReplyType) {
