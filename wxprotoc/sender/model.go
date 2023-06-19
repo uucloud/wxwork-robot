@@ -120,6 +120,12 @@ type TemplateCard struct {
 	//按钮列表，列表长度不超过6
 	ButtonList []*TemplateCardButtonList `json:"button_list,omitempty"`
 
+	//下拉式的选择器列表，multiple_interaction类型的卡片该字段不可为空，一个消息最多支持 3 个选择器
+	SelectList []*TemplateCardSelectList `json:"select_list,omitempty"`
+
+	//提交按钮样式
+	SubmitButton *TemplateCardSubmitButton `json:"submit_button,omitempty"`
+
 	//任务id，当文本通知模版卡片有action_menu字段的时候，该字段必填。
 	//同一个机器人任务id不能重复，只能由数字、字母和“_-@”组成，最长128字节。任务id只在发消息时候有效，更新消息的时候无效。
 	//任务id将会在相应的回调事件中返回
@@ -273,5 +279,36 @@ type TemplateCardButtonList struct {
 	//按钮样式，目前可填1~4，不填或错填默认1, 1:蓝底白字 2:蓝字白底 3:红字白底 4:黑字白底
 	Style int `json:"style,omitempty"`
 	//按钮key值，用户点击后，会产生回调事件将本参数作为event_key返回，最长支持1024字节，不可重复
+	Key string `json:"key"`
+}
+
+type TemplateCardSelectList struct {
+	//下拉式的选择器题目的key，用户提交选项后，会产生回调事件，回调事件会带上该key值表示该题，最长支持1024字节，不可重复
+	QuestionKey string `json:"question_key"`
+
+	//选择器的标题，建议不超过13个字
+	Title string `json:"title,omitempty"`
+
+	//下拉式的选择器是否不可选，false为可选，true为不可选。仅在更新模版卡片的时候该字段有效
+	Disable bool `json:"disable,omitempty"`
+
+	//默认选定的id，不填或错填默认第一个
+	SelectedID string `json:"selected_id,omitempty"`
+
+	//选项列表，下拉选项不超过 10 个，最少1个
+	OptionList []TemplateCardSelectOption `json:"option_list"`
+}
+
+type TemplateCardSelectOption struct {
+	//下拉式的选择器选项的id，用户提交选项后，会产生回调事件，回调事件会带上该id值表示该选项，最长支持128字节，不可重复
+	ID string `json:"id"`
+	//下拉式的选择器选项的文案，建议不超过10个字
+	Text string `json:"text"`
+}
+
+type TemplateCardSubmitButton struct {
+	//按钮文案，建议不超过10个字
+	Text string `json:"text"`
+	//提交按钮的key，会产生回调事件将本参数作为EventKey返回，最长支持1024字节
 	Key string `json:"key"`
 }

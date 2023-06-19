@@ -108,3 +108,46 @@ func TestTemplateCard(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestMultipleCard(t *testing.T) {
+	s := newTestSender()
+	uid, _ := uuid.GenerateUUID()
+	err := s.MultipleCard("", &TemplateCard{
+		Source: &TemplateCardSource{
+			IconURL: "https://www.bilibili.com/favicon.ico?v=1",
+			Desc:    "企业微信",
+		},
+
+		MainTitle: &TemplateCardMainTitle{
+			Title: "欢迎使用企业微信",
+			Desc:  "您的好友正在邀请您加入企业微信",
+		},
+		SelectList: []*TemplateCardSelectList{
+			{
+				QuestionKey: "question_key1",
+				Title:       "选择器标签1",
+				SelectedID:  "id_one",
+				OptionList: []TemplateCardSelectOption{
+					{
+						ID:   "id_one",
+						Text: "选项1",
+					},
+					{
+						ID:   "id_two",
+						Text: "选项2",
+					},
+				},
+			},
+		},
+		SubmitButton: &TemplateCardSubmitButton{
+			Text: "提交",
+			Key:  "submit_key",
+		},
+
+		TaskID: uid,
+	})
+
+	if err != nil {
+		t.Fatal(err)
+	}
+}

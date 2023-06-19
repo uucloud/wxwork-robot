@@ -65,10 +65,12 @@ robot.Rec.SetGroupEvent(receiver.EventDeleteFromChat, func(event *receiver.CallE
 * [ ] 发送NewsNotice模版卡片
 * [ ] 发送Button模版卡片
 * [ ] 发送Vote模版卡片
+* [x] 发送多项选择模版卡片
 ### 接收
 * [x] 回调校验
 * [x] 回调处理，包括单聊和群聊
 * [x] 事件处理
+* [ ] 卡片事件回调
 ### 其他
 * [x] 多机器人管理
 * [x] http server
